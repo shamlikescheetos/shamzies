@@ -1,6 +1,5 @@
-const Unblocker = require('node-unblocker');
 const http = require('http');
-
+const Unblocker = require('node-unblocker');
 const unblocker = new Unblocker({ prefix: '/proxy/' });
 
 http.createServer((req, res) => {
@@ -13,5 +12,6 @@ http.createServer((req, res) => {
             res.end('Not Found');
         }
     });
-}).listen(process.env.PORT || 3000);
-console.log('Proxy running!');
+}).listen(process.env.PORT || 3000, () => {
+    console.log('Proxy running!');
+});

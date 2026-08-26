@@ -5,6 +5,6 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "node-unblocker": "^2.4.0"
+    "unblocker": "^2.3.1"
   }
 }

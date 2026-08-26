@@ -1,5 +1,5 @@
 const http = require('http');
-const Unblocker = require('node-unblocker');
+const Unblocker = require('unblocker');
 const unblocker = new Unblocker({ prefix: '/proxy/' });
 
 http.createServer((req, res) => {

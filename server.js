@@ -1,17 +1,15 @@
+const express = require('express');
 const http = require('http');
-const Unblocker = require('unblocker');
-const unblocker = new Unblocker({ prefix: '/proxy/' });
+const { uvPath } = require('@titaniumnetwork-dev/ultraviolet');
+const app = express();
 
-http.createServer((req, res) => {
-    unblocker(req, res, (err) => {
-        if (err) {
-            res.writeHead(500, { 'Content-Type': 'text/plain' });
-            res.end(err.stack || err.toString());
-        } else {
-            res.writeHead(404, { 'Content-Type': 'text/plain' });
-            res.end('Not Found');
-        }
-    });
-}).listen(process.env.PORT || 3000, () => {
-    console.log('Proxy running!');
+app.use(express.static(uvPath));
+
+app.get('/', (req, res) => {
+    res.send('Portfolio Project Live');
+});
+
+const server = http.createServer(app);
+server.listen(process.env.PORT || 3000, () => {
+    console.log('Server active on port ' + (process.env.PORT || 3000));
 });

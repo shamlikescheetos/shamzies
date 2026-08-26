@@ -1,10 +1,11 @@
 {
-  "name": "private-proxy",
+  "name": "shamzies-testing",
   "version": "1.0.0",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "unblocker": "^2.3.1"
+    "@titaniumnetwork-dev/ultraviolet": "^3.2.3",
+    "express": "^4.19.2"
   }
 }
